@@ -5,7 +5,7 @@ const {
 /*
 
  const item = {
-     nome: 'Erick',
+     nome: 'João Pedro',
      idade: 12,
 
  }

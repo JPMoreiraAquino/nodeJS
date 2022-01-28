@@ -4,13 +4,19 @@ const {
 
 const URL = `https://swapi.dev/api/people`
 
-async function obterpessoas(nome) {
+async function obterPessoas(nome) {
     const url = `${URL}?search=${nome}&format=json`
     const response = await get(url)
-    return response.data
+    console.log(response.data)
+    return response.data.results.map(mapearPessoas)
    
 }
-
+function mapearPessoas (item) {
+    return {
+        nome: item.name,
+        peso: item.height
+    }
+}
 module.exports = {
-    obterpessoas
+    obterPessoas
 }
