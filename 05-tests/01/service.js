@@ -1,12 +1,16 @@
-const axios = require('axios')
+const { 
+    get
+} = require("axios")
+
 const URL = `https://swapi.dev/api/people`
 
-async function obterPessoas(nome) {
+async function obterpessoas(nome) {
     const url = `${URL}?search=${nome}&format=json`
-    const response = await axios.get(url)
+    const response = await get(url)
     return response.data
+   
 }
 
 module.exports = {
-    obterPessoas
+    obterpessoas
 }
