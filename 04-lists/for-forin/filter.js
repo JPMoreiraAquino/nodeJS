@@ -1,0 +1,2 @@
+const {obterPessoas} = require('./service')
+
