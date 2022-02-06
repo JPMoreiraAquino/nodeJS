@@ -1,3 +1,4 @@
+/*
 docker ps
 
 docker exec -it 9128f0e009a1 mongo -u JPMoreira -p batata123 -authenticationDatabase herois
@@ -10,6 +11,7 @@ use herois
 
 //mostra tables (colecoes)
 show collections 
+*/
 
 db.herois.insert({
     nome: 'Flash',
