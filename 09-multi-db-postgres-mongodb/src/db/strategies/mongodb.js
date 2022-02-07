@@ -50,7 +50,7 @@ class MongoDB extends ICrud {
     }
 
     connect() {
-        Mongoose.connect('mongodb://JPMoreira:jape2468@localhost:27017/herois', {
+        Mongoose.connect('mongodb://JPMoreira:batata123@localhost:27017/herois', {
             useNewUrlParser: true
         }, (err) => {
             if (!err) return;

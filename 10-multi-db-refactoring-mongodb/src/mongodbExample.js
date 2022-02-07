@@ -2,7 +2,7 @@
 
 const Mongoose = require('mongoose')
 
-Mongoose.connect('mongodb://JPMoreira:jape2468@localhost:27017/herois', {useNewUrlParser: true}, (err) => {
+Mongoose.connect('mongodb://JPMoreira:batata123@localhost:27017/herois', {useNewUrlParser: true}, (err) => {
     if(!err) return ; 
     console.log('Falha na conexão!', err)
 

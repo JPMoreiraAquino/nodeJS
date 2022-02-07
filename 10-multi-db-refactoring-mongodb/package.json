@@ -1,7 +1,6 @@
 {
   "name": "07-multi-db",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha src/tests/*.js",
@@ -14,9 +13,10 @@
     "mongoose": "^6.2.0",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.15.0"
+    "sequelize": "^6.15.1"
   },
   "devDependencies": {
     "mocha": "^9.2.0"
-  }
+  },
+  "description": ""
 }

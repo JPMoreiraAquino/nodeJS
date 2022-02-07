@@ -77,7 +77,7 @@ class Postgres extends ICrud {
         this._driver = new Sequelize(
             'heros',
             'JPMoreira',
-            'jape2468',
+            'batata123',
             {
                 host: 'localhost',
                 dialect: 'postgres',

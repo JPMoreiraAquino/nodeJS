@@ -1,8 +1,9 @@
 const assert = require('assert')
-const MongoDB = require('../db/strategies/mongodb')
+const MongoDB = require('../db/strategies/mongodb/mongodb')
+const HeroiSchema = require('./../db/strategies/mongodb/schemas/heroisScherma')
 const ConText = require('../db/strategies/base/contextStrategy')
 
-const context = new ConText(new MongoDB())
+let context = {}
 
 const MOCK_HEROI_CADASTRAR = {
     nome: 'Mulher Maravilha',
@@ -20,7 +21,9 @@ let MOCK_HEROI_ID = ""
 
 describe('MongoDB Suito de test', function()  {
     this.beforeAll(async () => { 
-        await context.connect()
+        const connection = MongoDB.connect()
+        context = new ConText(new MongoDB(connection, HeroiSchema))
+
         await context.create(MOCK_HEROI_DEFAULT)
         const result = await context.create(MOCK_HEROI_ATUALIZAR)
         MOCK_HEROI_ID = result._id
@@ -53,8 +56,10 @@ describe('MongoDB Suito de test', function()  {
         })        
         assert.deepEqual(result.modifiedCount, 1)
     })
-    it('remover'), async () => { 
+
+    it('remover', async () => {
         const result = await context.delete(MOCK_HEROI_ID)
-        assert.deepEqual(result.n, 1)
-    }
+        assert.deepEqual(result.deletedCount, 1)
+
+    })
 })
