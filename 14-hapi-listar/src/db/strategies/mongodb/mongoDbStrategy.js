@@ -11,8 +11,8 @@ class MongoDB extends ICrud {
      // 1o 
     constructor(connection, schema) {
         super()
+        this._schema = schema;
         this._connection = connection;
-        this._collection = schema;
     }
     // 2o
     async isConnected() {
@@ -40,17 +40,17 @@ class MongoDB extends ICrud {
     }
 
     async create(item) {
-        return this._collection.create(item)
+        return this._schema.create(item)
     }
-    async read(item = {}) {
-        return this._collection.find(item, { nome: 1, poder: 1, insertedAt: 1})
+    read(item, skip=0, limit=10) {
+        return this._schema.find(item).skip(skip).limit(limit)
     }
     async update(id, item) {
-        return this._collection.updateOne({_id: id}, { $set: item})
+        return this._schema.updateOne({_id: id}, { $set: item})
     }
     
     async delete(id) {
-        return this._collection.deleteOne({_id: id})
+        return this._schema.deleteOne({_id: id})
     }
 }
 
