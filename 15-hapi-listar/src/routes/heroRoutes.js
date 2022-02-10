@@ -8,19 +8,25 @@ class HeroRoutes extends BaseRoute {
 
     }
 
+    
     list() {
         return {
             path: '/herois',
             method: 'GET',
             config: {
                 validate: {
+                    
+                    failAction: (request, headers, erro) => {
+                        throw erro;
+
+                    },
                     query: {
                         skip: Joi.number().integer().default(0),
-                        limit: Joi.number().integer.default(10),
+                        limit: Joi.number().integer().default(10),
                         nome: Joi.string().min(3).max(100)
 
-                    }
 
+                    }
                 }
             },
             handler: (request, headers) => {
